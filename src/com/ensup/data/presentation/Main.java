@@ -46,7 +46,11 @@ public class Main {
 				System.out.print("Quel id souhaitez vous recupérer ?");
 				String id = br.readLine();
 				Etudiant etudiant = service.getEtudiantById(id);
-				System.out.println(etudiant.toString());
+				if(etudiant != null) {
+					System.out.println(etudiant.toString());
+				}else {
+					System.out.println("Aucun utilisateur ne correspond à cet ID !");
+				}
 			}
 			
 		} catch (IOException e) {
