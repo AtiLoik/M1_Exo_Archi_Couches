@@ -10,7 +10,7 @@ import com.ensup.data.domaine.Etudiant;
 
 public class EtudiantDAO {
 
-	private static String url = "jdbc:mysql://localhost/archi_couche_1";
+	private static String url = "jdbc:mysql://localhost/archi_couche_1?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private static String login = "root";
 	private static String passwd = "";
 	
