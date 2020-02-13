@@ -2,8 +2,16 @@ package com.ensup.data.domaine;
 
 public class Etudiant {
 
+	// Propriétés
 	private String id, nom, prenom, email;
 	
+	/**
+	 * Constructeur de la classe Etudiant.
+	 * @param id L'ID de l'étudiant.
+	 * @param nom Le nom de l'étudiant.
+	 * @param prenom Le prénom de l'étudiant.
+	 * @param email L'email de l'étudiant
+	 */
 	public Etudiant(String id, String nom, String prenom, String email) {
 		super();
 		this.id = id;
@@ -49,6 +57,4 @@ public class Etudiant {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
 }

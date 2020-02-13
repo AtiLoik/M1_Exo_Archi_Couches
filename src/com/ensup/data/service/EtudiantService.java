@@ -5,20 +5,30 @@ import com.ensup.data.domaine.Etudiant;
 
 public class EtudiantService {
 
-	/*Attributs: */
 	private EtudiantDAO etudiantDao;
 	
-	/*Constructeur: */
+	/**
+	 * Constructeur de la classe EtudiantService.
+	 */
 	public EtudiantService() {
 		etudiantDao = new EtudiantDAO();
 	}
 	
-	/*Permet de crÃ©er un Ã©tudiant*/
+	/**
+	 * Appelle la méthode createEtudiant() de la classe EtudiantDAO.
+	 * @param prenom Le prénom de l'étudiant.
+	 * @param nom Le nom de l'étudiant.
+	 * @param email L'email de l'étudiant.
+	 */
 	public void createEtudiant(String prenom, String nom, String email) {
 		etudiantDao.createEtudiant(prenom, nom, email);
 	}
 	
-	/*Permet de rÃ©cupÃ©rer les information d'un Ã©tudiant (via le toString)*/
+	/**
+	 * Appelle la méthode getEtudiantById() de la classe EtudiantDAO.
+	 * @param id L'ID de l'étudiant.
+	 * @return Un objet de type étudiant correspondant à l'ID passé en argument.
+	 */
 	public Etudiant getEtudiantById(String id) {
 		return etudiantDao.getEtudiantById(id);
 	}

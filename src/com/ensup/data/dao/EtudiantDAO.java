@@ -10,14 +10,17 @@ import com.ensup.data.domaine.Etudiant;
 
 public class EtudiantDAO {
 
-	private static String url = "jdbc:mysql://localhost/archi_couche_1?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	private static String login = "root";
-	private static String passwd = "";
+	private final String url = "jdbc:mysql://localhost/archi_couche_1?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+	private final String login = "root";
+	private final String passwd = "";
 	
 	private Connection cn = null;
 	private Statement st = null;
 	private ResultSet rs = null;
 	
+	/**
+	 * Constructeur de la classe EtudiantDAO.
+	 */
 	public EtudiantDAO() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -30,6 +33,13 @@ public class EtudiantDAO {
 		}
 	}
 	
+	/**
+	 * Insère un étudiant dans la base de données.
+	 * @param prenom Le prénom de l'étudiant.
+	 * @param nom Le nom de l'étudiant.
+	 * @param email L'email de l'étudiant.
+	 * @return True
+	 */
 	public boolean createEtudiant(String prenom, String nom, String email) {
 		try {
 			String sql = "INSERT into etudiant (nom, prenom, email) VALUES "
@@ -52,6 +62,11 @@ public class EtudiantDAO {
 		return true;
 	}
 	
+	/**
+	 * Récupère un étudiant en fonction d'un ID.
+	 * @param id L'ID de l'étudiant.
+	 * @return Un objet de type Etudiant correspondant à l'ID passé en argument.
+	 */
 	public Etudiant getEtudiantById(String id) {
 		try {
 			String sql = "SELECT * FROM etudiant WHERE id = " + id + "";
