@@ -11,6 +11,11 @@ public class Etudiant {
 		this.prenom = prenom;
 		this.email = email;
 	}
+	
+	@Override
+	public String toString() {
+		return "Etudiant [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + "]";
+	}
 
 	// GETTERS SETTERS //
 	public String getNom() {

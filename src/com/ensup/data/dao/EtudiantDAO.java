@@ -10,11 +10,19 @@ import com.ensup.data.domaine.Etudiant;
 
 public class EtudiantDAO {
 
-	static String url = "jdbc:mysql://localhost/uml_java2";
-	static String login = "root";
-	static String passwd = "";
+	private static String url = "jdbc:mysql://localhost/archi_couche_1";
+	private static String login = "root";
+	private static String passwd = "";
 	
-	public boolean create(String prenom, String nom, String email) {
+	private Connection cn = null;
+	Statement st = null;
+	ResultSet rs = null;
+	
+	public EtudiantDAO() {
+		
+	}
+	
+	public boolean creerEtudiant(String prenom, String nom, String email) {
 		Connection cn = null;
 		Statement st = null;
 		ResultSet rs = null;
@@ -22,9 +30,9 @@ public class EtudiantDAO {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			cn = DriverManager.getConnection(url, login, passwd);
 			st = cn.createStatement();
-			String sql = "INSERT into etudiant (id_ecole, prenom, nom, numeroEtudiant) VALUES "
-					+ "('"+prenom+"'"
-					+ ",'"+nom+"'"
+			String sql = "INSERT into etudiant (nom, prenom, email) VALUES "
+					+ "('"+nom+"'"
+					+ ",'"+prenom+"'"
 					+ ", '"+email+"'"
 					+")";
 			System.out.println(sql);
@@ -44,7 +52,7 @@ public class EtudiantDAO {
 		return true;
 	}
 	
-	public Etudiant getById(String id) {
+	public Etudiant recupererEtudiant(String id) {
 		Connection cn = null;
 		Statement st = null;
 		ResultSet rs = null;
