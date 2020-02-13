@@ -6,7 +6,8 @@ Groupe de :
 - Cédric Nozerand
 - Benjamin Boutrois
 
-Lien pour UML : https://drive.google.com/file/d/1peo1kODpwBW3KUSflA-oO5dTv7eIwCD1/view?usp=sharing
+Diagramme de classes : https://drive.google.com/file/d/1peo1kODpwBW3KUSflA-oO5dTv7eIwCD1/view?usp=sharing
+Diagramme de packages : https://drive.google.com/file/d/1KEDttHW4ZJ5cRb-in4iSUB6f5ukb7FX0/view?usp=sharing
 
 # Installation
 
