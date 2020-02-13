@@ -16,5 +16,4 @@ Prérequis :
 Procédure :
 
 1. Cloner le projet Github avec Eclipse.
-2. Driver JDBC ???
-3. Compiler et exécuter le projet depuis Eclipse.
+2. Compiler et exécuter le projet depuis Eclipse.
