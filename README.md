@@ -13,5 +13,8 @@ Lien pour UML : https://drive.google.com/file/d/1peo1kODpwBW3KUSflA-oO5dTv7eIwCD
 Prérequis :
 - Avoir Git et Eclipse installé en local
 
+Procédure :
+
 1. Cloner le projet Github avec Eclipse.
-2. ... A suivre
+2. Driver JDBC ???
+3. Compiler et exécuter le projet depuis Eclipse.
