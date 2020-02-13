@@ -49,11 +49,14 @@ public class Main {
 				System.out.print("Quel est votre email: ");
 				String email = br.readLine();
 				
+				// Fait appel à la fonction createEtudiant de service/EtudiantService.java
 				service.createEtudiant(prenom, nom, email);
 			}else if(choix.equals("2")) {
 				System.out.print("Quel id souhaitez vous recup�rer ?");
 				String id = br.readLine();
+				// Fait appel a la fonction getEtudiantById de service/EtudiantService et la met dans un objet etudiant pour vérifier s'il est null ou non
 				Etudiant etudiant = service.getEtudiantById(id);
+				// S'il est null, envoie d'un message d'erreur, sinon affiche l'étudiant
 				if(etudiant != null) {
 					System.out.println(etudiant.toString());
 				}else {
