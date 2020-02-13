@@ -41,11 +41,11 @@ public class Main {
 				System.out.print("Quel est votre email: ");
 				String email = br.readLine();
 				
-				service.creerEtudiant(prenom, nom, email);
+				service.createEtudiant(prenom, nom, email);
 			}else if(choix.equals("2")) {
 				System.out.print("Quel id souhaitez vous recupérer ?");
 				String id = br.readLine();
-				Etudiant etudiant = service.recupererEtudiant(id);
+				Etudiant etudiant = service.getEtudiantById(id);
 				System.out.println(etudiant.toString());
 			}
 			

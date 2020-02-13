@@ -15,21 +15,23 @@ public class EtudiantDAO {
 	private static String passwd = "";
 	
 	private Connection cn = null;
-	Statement st = null;
-	ResultSet rs = null;
+	private Statement st = null;
+	private ResultSet rs = null;
 	
 	public EtudiantDAO() {
-		
-	}
-	
-	public boolean creerEtudiant(String prenom, String nom, String email) {
-		Connection cn = null;
-		Statement st = null;
-		ResultSet rs = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			cn = DriverManager.getConnection(url, login, passwd);
 			st = cn.createStatement();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean createEtudiant(String prenom, String nom, String email) {
+		try {
 			String sql = "INSERT into etudiant (nom, prenom, email) VALUES "
 					+ "('"+nom+"'"
 					+ ",'"+prenom+"'"
@@ -39,9 +41,7 @@ public class EtudiantDAO {
 			st.executeUpdate(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} catch (ClassNotFoundException e ) {
-			e.printStackTrace();
-		} finally {
+		}  finally {
 			try {
 				cn.close();
 				st.close();
@@ -52,15 +52,8 @@ public class EtudiantDAO {
 		return true;
 	}
 	
-	public Etudiant recupererEtudiant(String id) {
-		Connection cn = null;
-		Statement st = null;
-		ResultSet rs = null;
-		
+	public Etudiant getEtudiantById(String id) {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			cn = DriverManager.getConnection(url, login, passwd);
-			st = cn.createStatement();
 			String sql = "SELECT * FROM etudiant WHERE id = " + id + "";
 			System.out.println(sql);
 			rs = st.executeQuery(sql);
@@ -69,8 +62,6 @@ public class EtudiantDAO {
 				return new Etudiant(rs.getString("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"));
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e ) {
 			e.printStackTrace();
 		} finally {
 			try {

@@ -11,11 +11,11 @@ public class EtudiantService {
 		etudiantDao = new EtudiantDAO();
 	}
 	
-	public void creerEtudiant(String prenom, String nom, String email) {
-		etudiantDao.creerEtudiant(prenom, nom, email);
+	public void createEtudiant(String prenom, String nom, String email) {
+		etudiantDao.createEtudiant(prenom, nom, email);
 	}
 	
-	public Etudiant recupererEtudiant(String id) {
-		return etudiantDao.recupererEtudiant(id);
+	public Etudiant getEtudiantById(String id) {
+		return etudiantDao.getEtudiantById(id);
 	}
 }
