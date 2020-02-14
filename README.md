@@ -14,6 +14,8 @@ Diagramme de packages : https://drive.google.com/file/d/1KEDttHW4ZJ5cRb-in4iSUB6
 **Prérequis :**
 - Avoir **Git** et **Eclipse** installés en local
 - Avoir **XAMPP** installé et les services **Apache** et **MySQL** lancés
+- La base de données doit être en local
+- On suppose que le port de la base de données est '3306', le nom d'utilisateur est 'root' et le mot de passe est ''.
 
 **Procédure :**
 
