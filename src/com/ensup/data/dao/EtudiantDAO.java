@@ -5,8 +5,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.ensup.data.domaine.Etudiant;
+import com.ensup.data.metier.Etudiant;
 
 public class EtudiantDAO {
 
@@ -40,12 +42,13 @@ public class EtudiantDAO {
 	 * @param email L'email de l'étudiant.
 	 * @return True
 	 */
-	public boolean createEtudiant(String prenom, String nom, String email) {
+	public boolean createEtudiant(String prenom, String nom, String email, String genre) {
 		try {
-			String sql = "INSERT into etudiant (nom, prenom, email) VALUES "
+			String sql = "INSERT into etudiant (nom, prenom, email, genre) VALUES "
 					+ "('"+nom+"'"
 					+ ",'"+prenom+"'"
 					+ ", '"+email+"'"
+					+ ", '"+genre+"'"
 					+")";
 			System.out.println(sql);
 			st.executeUpdate(sql);
@@ -74,8 +77,39 @@ public class EtudiantDAO {
 			rs = st.executeQuery(sql);
 			
 			if(rs.next()) {
-				return new Etudiant(rs.getString("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"));
+				return new Etudiant(rs.getString("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"), rs.getString("genre"));
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				cn.close();
+				st.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+	
+	public List<Etudiant> getAllEtudiants(){
+		List<Etudiant> etudiants = new ArrayList<Etudiant>();
+		
+		try {
+			String sql = "SELECT * FROM etudiant";
+			System.out.println(sql);
+			rs = st.executeQuery(sql);
+			
+			while(rs.next()) {
+				String id = rs.getString("id");
+				String nom = rs.getString("nom");
+				String prenom = rs.getString("prenom");
+				String mail = rs.getString("email");
+				String genre = rs.getString("genre");
+				
+				etudiants.add(new Etudiant(id, nom, prenom, mail, genre));
+			}
+			return etudiants;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

@@ -1,9 +1,9 @@
-package com.ensup.data.domaine;
+package com.ensup.data.metier;
 
 public class Etudiant {
 
 	// Propriétés
-	private String id, nom, prenom, email;
+	private String id, nom, prenom, email, genre;
 	
 	/**
 	 * Constructeur de la classe Etudiant.
@@ -11,18 +11,21 @@ public class Etudiant {
 	 * @param nom Le nom de l'étudiant.
 	 * @param prenom Le prénom de l'étudiant.
 	 * @param email L'email de l'étudiant
+	 * @param genre Le genre de la personne
 	 */
-	public Etudiant(String id, String nom, String prenom, String email) {
+	public Etudiant(String id, String nom, String prenom, String email, String genre) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
+		this.genre = genre;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Etudiant [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + "]";
+		return "Etudiant [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", genre=" + genre
+				+ "]";
 	}
 
 	// GETTERS SETTERS //
@@ -56,5 +59,13 @@ public class Etudiant {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 }
